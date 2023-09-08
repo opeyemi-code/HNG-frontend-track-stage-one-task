@@ -1,11 +1,9 @@
 let dayOfTheWeek = document.getElementById("day-of-the-week");
-let hourOfTheDay = document.getElementById("hour");
-let minuteOfTheDay = document.getElementById("minute");
+const currentTime = document.getElementById("time");
 let periodOfTheDay = document.getElementById("meridian");
 
-const date = new Date();
-
 function setDayOfTheWeek() {
+  const date = new Date();
   let day;
 
   switch (date.getDay()) {
@@ -34,35 +32,27 @@ function setDayOfTheWeek() {
 
   dayOfTheWeek.textContent = day;
 }
-
 setDayOfTheWeek();
 
-function setHourOfTheWeek() {
-  if (date.getUTCHours() < 12) {
-    hourOfTheDay.textContent = "0" + date.getUTCHours();
-  } else {
-    hourOfTheDay.textContent = date.getUTCHours();
+function setCurrentTime() {
+  const date = new Date();
+  const hours = date.getUTCHours();
+  const minutes = date.getUTCMinutes();
+  const seconds = date.getSeconds();
+
+  currentTime.textContent = `${hours.toString()}:${minutes.toString()}:${seconds
+    .toString()
+    .padStart(2, "0")}`;
+
+  function setPeriodOfTheDay() {
+    if (hours < 12) {
+      periodOfTheDay.textContent = " am";
+    } else {
+      periodOfTheDay.textContent = " pm";
+    }
   }
+
+  setPeriodOfTheDay();
 }
 
-setHourOfTheWeek();
-
-function setMinuteOfTheDay() {
-  if (date.getMinutes() < 10) {
-    minuteOfTheDay.textContent = "0" + date.getUTCMinutes();
-  } else {
-    minuteOfTheDay.textContent = date.getUTCMinutes();
-  }
-}
-
-setMinuteOfTheDay();
-
-function setPeriodOfTheDay() {
-  if (hourOfTheDay.textContent < 12) {
-    periodOfTheDay.textContent = " am";
-  } else {
-    periodOfTheDay.textContent = " pm";
-  }
-}
-
-setPeriodOfTheDay();
+setInterval(setCurrentTime, 1000);
