@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Page Creation With Specific Elements</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 data-testid="Opeyemi Obatola">Opeyemi Obatola</h1>
+      <div class="img-container">
+        <img
+          src="img.jpg"
+          alt="opeyemi obatola"
+          data-testid="opeyemi Obatola"
+        />
+      </div>
+      <p class="time paragraph">
+        <span data-testid="currentDayOfTheWeek" id="day-of-the-week"
+          >Monday</span
+        >
+        <span data-testid="currentUTCTime"><span id="hour">00</span>:<span id="minute">00</span><span id="meridian"> am</span>
+      </p>
+      <p data-testid="myTrack" class="paragraph">
+        <span class="track">Track:</span> Frontend Web Development
+      </p>
+      <p data-testid="githubURL" class="paragraph">
+        <a
+          href="https://github.com/opeyemi-code/HNG-frontend-track-stage-one-task"
+          >Click here</a
+        >
+        to view this repository
+      </p>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
